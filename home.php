@@ -1,10 +1,6 @@
 <?php
 session_start();
 include_once('procedimentos/conexao.php');
-if (!isset($_SESSION['nome'])) {
-    header("Location: procedimentos/unauthorized.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +13,8 @@ if (!isset($_SESSION['nome'])) {
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <header>
-    <h4>Bem-vindo Administrador: <?php echo $_SESSION['nome'];?></h4>
-    <a href="procedimentos/sair.php"><ion-icon name="arrow-forward-outline"></ion-icon></a>   
+<h4>Bem-vindo Administrador: <?php echo $_SESSION['nome'];?></h4>
+<a href="procedimentos/sair.php"><ion-icon name="arrow-forward-outline"></ion-icon></a>   
 </header>
 <body>
 <div class="container">
@@ -33,12 +29,9 @@ if (!isset($_SESSION['nome'])) {
 </div>
 </body>
 <script>
-        // Verifica se o parâmetro 'sucesso' está presente na URL
         window.onload = function() {
-            // Recupera o parâmetro da URL
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('sucesso') && urlParams.get('sucesso') == '1') {
-                // Exibe o alerta se o cadastro foi bem-sucedido
                 alert('Cadastro realizado com sucesso!');
             }
         };

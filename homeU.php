@@ -1,10 +1,6 @@
 <?php
 session_start();
 include_once('procedimentos/conexao.php');
-if (!isset($_SESSION['email'])) {
-    header("Location: procedimentos/unauthorized.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

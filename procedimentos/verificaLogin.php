@@ -16,10 +16,9 @@ if ($conexao->connect_errno) {
     $resultado = $conexao->query($sql);
 
     if ($resultado->num_rows > 0){ 
-        $_SESSION['nome'] = $nome; 
+        $_SESSION['nome'] = $email; 
         header('Location: ../home.php', true, 301);
         exit();
-
     } elseif ($resultado->num_rows == 0) {
         $sql = "SELECT *
                 FROM `usuarios`
